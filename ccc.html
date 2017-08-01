@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="uploadify/uploadify.css">
+</head>
+<body>
+<form action="">
+    <input id="uploadify" type="file" />
+    <input type="button" id="btn" value="上传">
+</form>
+</body>
+<script src="js/lib/jquery-2.1.4.js"></script>
+<script src="uploadify/jquery.uploadify.js"></script>
+<script>
+    $('#uploadify').uploadify({
+        formData:{cs_id:10},
+        fileObjName:"cs_cover_original",
+        swf: '/uploadify/uploadify.swf',
+        uploader: '/api/uploader/cover',
+        fileTypeExts: '*.gif; *.jpg; *.png',
+        auto:true
+    });
+    $("#btn").on("click",function(){
+        $('#uploadify').uploadify('upload');
+    })
+</script>
+</html>

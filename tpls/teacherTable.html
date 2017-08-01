@@ -1,0 +1,55 @@
+<table class="table-teacher table table-hover table-bordered" id="teacherTable">
+    <thead>
+    <tr>
+        <th>讲师编号</th>
+        <th>姓名</th>
+        <th>昵称</th>
+        <th>性别</th>
+        <th>手机</th>
+        <th>邮箱</th>
+        <th>出生日期</th>
+        <th>入职日期</th>
+        <th>账户状态</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{each result teacherObj index}}
+        <tr>
+            <td>{{teacherObj.tc_id}}</td>
+            <td>{{teacherObj.tc_name}}</td>
+            <td>{{teacherObj.tc_roster}}</td>
+
+            {{if(teacherObj.tc_gender==0)}}
+                <td>男</td>
+            {{else}}
+                <td>女</td>
+            {{/if}}
+
+            <td>{{teacherObj.tc_cellphone}}</td>
+            <td>{{teacherObj.tc_email}}</td>
+
+            <td>{{teacherObj.tc_birthday}}</td>
+            <td>{{teacherObj.tc_join_date}}</td>
+
+            {{if(teacherObj.tc_status==0)}}
+                <td>注销</td>
+            {{else}}
+                <td>启用</td>
+            {{/if}}
+
+
+            <td tc_id="{{teacherObj.tc_id}}" tc_status="{{teacherObj.tc_status}}">
+                <button class="btn btn-success btn-sm btn-showInfo">查看</button>
+                <button class="btn btn-primary btn-sm btn-edit">编辑</button>
+                {{if(teacherObj.tc_status==0)}}
+                <button class="btn btn-info btn-sm btn-status">启用</button>
+                {{else}}
+                <button class="btn btn-info btn-sm btn-status">注销</button>
+                {{/if}}
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+

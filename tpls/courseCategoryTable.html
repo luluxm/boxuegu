@@ -1,0 +1,44 @@
+<table class="table-teacher table table-hover table-bordered" id="courseCategoryTable">
+    <thead>
+    <tr>
+        <th>分类名称</th>
+        <th>课程数量</th>
+        <th>是否显示</th>
+        <th>排序</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{each result categoryObj index}}
+        {{if(categoryObj.cg_pid==0)}}
+            <tr>
+                <td>{{categoryObj.cg_name}}</td>
+                <td>{{categoryObj.total}}</td>
+                <td>{{categoryObj.cg_is_hide}}</td>
+                <td>{{categoryObj.cg_order}}</td>
+
+                <td tc_id="{{categoryObj.cg_id}}">
+                    <button class="btn btn-primary btn-sm btn-edit">编辑</button>
+                </td>
+            </tr>
+
+            {{each result categoryObj2 index2}}
+                {{if(categoryObj2.cg_pid==categoryObj.cg_id)}}
+                    <tr>
+                        <td>|-{{categoryObj2.cg_name}}</td>
+                        <td>{{categoryObj2.total}}</td>
+                        <td>{{categoryObj2.cg_is_hide}}</td>
+                        <td>{{categoryObj2.cg_order}}</td>
+
+                        <td tc_id="{{categoryObj2.cg_id}}">
+                            <button class="btn btn-primary btn-sm btn-edit">编辑</button>
+                        </td>
+                    </tr>
+                {{/if}}
+            {{/each}}
+        {{/if}}
+
+    {{/each}}
+    </tbody>
+</table>
+

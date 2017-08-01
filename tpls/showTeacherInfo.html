@@ -1,0 +1,47 @@
+<div class="modal fade" id="showTeacherInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">讲师信息</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                        <td>姓名</td>
+                        <td>{{result.tc_name}}</td>
+                        <td>职位</td>
+                        <td>讲师</td>
+                        <td rowspan="4">
+                            <img src="../imgs/pic.jpg" width="80" height="80" alt="">
+                            <!--<img src="{{result.tc_avatar}}" alt="">-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>花名</td>
+                        <td>{{result.tc_roster}}</td>
+                        <td>入职日期</td>
+                        <td>{{result.tc_join_date}}</td>
+                    </tr>
+                    <tr>
+                        <td>性别</td>
+                        <td>{{result.tc_gender=="0"?"男":"女"}}</td>
+                        <td>出生日期</td>
+                        <td>{{result.tc_birthday}}</td>
+                    </tr>
+                    <tr>
+                        <td>手机号码</td>
+                        <td>{{result.tc_cellphone}}</td>
+                        <td>邮箱</td>
+                        <td>{{result.tc_email}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">{{result.tc_introduce}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

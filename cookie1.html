@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+index.html
+</body>
+<script>
+    //    document.cookie="name=ccc";
+    //    document.cookie="age=18";
+
+    //1、获取当前时间
+    var date=new Date();
+    //2、获取当前时间的日期部分(几号)
+    var day=date.getDate();
+    //3、设置一个新的日期
+    date.setDate(day+1);
+    //4、获取设置的值
+    console.log(date.toLocaleString());
+
+
+    //默认情况下，cookie将会在关闭浏览器之后过期，如果希望cookie保存一段时间，就需要指定cookie的过期时间
+    //    document.cookie="age=18;expires="+date;//设置cookie的过期时间就是比当前时间>1天
+</script>
+</html>

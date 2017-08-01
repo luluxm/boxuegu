@@ -1,0 +1,31 @@
+.leftNav {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  background-color: lightblue;
+}
+.leftNav .profile {
+  width: 100%;
+  height: 150px;
+}
+.leftNav .profile .img-container {
+  width: 80px;
+  height: 80px;
+  margin: 20px auto;
+}
+.rightContent {
+  position: absolute;
+  left: 200px;
+  right: 0;
+  height: 100%;
+}
+.rightContent .urlNav,
+.rightContent .panel-teacher {
+  margin-left: 15px;
+}
+.rightContent .panel-teacher .table-teacher {
+  margin-top: 10px;
+}
+.rightContent .module-main {
+  margin-left: 15px;
+}

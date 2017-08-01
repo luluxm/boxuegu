@@ -1,0 +1,46 @@
+<div class="table-category-container">
+    <div class="row">
+        <div class="col-md-2 col-md-offset-10">
+            <button class="btn btn-success">添加分类</button>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+        <th>分类名称</th>
+        <th>课程数量</th>
+        <th>是否显示</th>
+        <th>排序</th>
+        <th>操作</th>
+        </thead>
+        <tbody>
+        {{each result category}}
+        {{if(category.cg_pid==0)}}
+        <tr>
+            <td>{{category.cg_name}}</td>
+            <td>{{category.total}}</td>
+            <td>{{category.cg_is_hide}}</td>
+            <td>{{category.cg_order}}</td>
+            <td cg-id="{{category.cg_id}}">
+                <button class="btn btn-primary btn-edit btn-sm">编辑</button>
+            </td>
+        </tr>
+
+        {{each result category2}}
+        {{if(category2.cg_pid==category.cg_id)}}
+        <tr>
+            <td>|-{{category2.cg_name}}</td>
+            <td>{{category2.total}}</td>
+            <td>{{category2.cg_is_hide}}</td>
+            <td>{{category2.cg_order}}</td>
+            <td cg-id="{{category2.cg_id}}">
+                <button class="btn btn-primary btn-edit btn-sm">编辑</button>
+            </td>
+        </tr>
+        {{/if}}
+        {{/each}}
+        {{/if}}
+
+        {{/each}}
+        </tbody>
+    </table>
+</div>

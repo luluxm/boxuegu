@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<div class="container">
+    <form class="form form-horizontal" id="frmLogin">
+        <h3 class="text-center">管理系统</h3>
+        <div class="form-group">
+            <label for="" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="" value="前端学院" name="tc_name" placeholder="请输入用户名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" name="tc_pass" value="123456" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+                <button class="btn btn-block btn-primary" id="btnLogin">登录</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+<script src="js/lib/jquery-2.1.4.js"></script>
+<script src="js/lib/jquery.cookie.js"></script>
+<script src="assets/bootstrap/js/bootstrap.js"></script>
+<script>
+    //给表单绑定一个submit事件，将会在表单提交的时候触发
+    $("#frmLogin").on("submit", function () {
+        //1、获取表单数据
+        var formData = $("#frmLogin").serialize();
+
+
+        //2、请求后台接口-->验证是否登录成功
+        $.ajax({
+            url: "/api/login",
+            method: "POST",
+            data: formData,
+            success: function (res) {
+                //      2.1-->验证成功，页面跳转
+                if(res.code==200){
+                    //保存登录状态：
+
+                    $.cookie("tc_name",res.result.tc_name);
+                    $.cookie("tc_avatar",res.result.tc_avatar);
+
+//                    tc_avatar
+//                            :
+//                            "http://static.botue.com/images/avatar/591ba4c77eed3.jpg"
+//                    tc_name
+//                            :
+//                            "前端学院"
+
+                    location.href="index.html";
+                    return;
+                }
+
+                //      2.2-->验证失败，告诉用户一些信息
+                alert(res.msg);
+
+
+            },
+            error:function(res){
+                var str=res.responseText;
+
+                var errorObj=JSON.parse(str);
+
+                alert("请求失败："+errorObj.msg);
+            }
+        })
+
+
+
+
+        //阻止表单提交
+        return false;
+    })
+
+</script>
+</html>

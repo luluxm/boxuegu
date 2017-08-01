@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var str="<p></p>";
+
+    var $1=$(str);//将str转换为jquery对象，该jquery对象中含有一个dom元素-->dom1
+
+    var $2=$(str);//将str转换为另一个jquery对象，该jquery对象中含有另一个dom元素-->dom2
+
+    //验证：
+    console.log($1[0]==$2[0]);//false——>这两个dom元素不相等，所以他们不是同一个DOM元素
+</script>
+</html>
